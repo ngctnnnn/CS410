@@ -6,7 +6,7 @@ def Sphere(ind):
         sum += i**2
     return sum
 
-def Restrigin(ind):
+def Rastrigin(ind):
     sum = 10 * len(ind)
     for i in ind:
         sum += i**2 - 10 * np.cos(2*np.pi*i)
