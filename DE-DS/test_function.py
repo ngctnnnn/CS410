@@ -18,26 +18,26 @@ def Rosenbrock(ind):
         sum += 100 * (ind[i + 1] - ind[i]**2)**2 + (ind[i] - 1)**2
     return sum 
 
-def Griewank(ind):
+def Griewank(d):
     sum_1 = 0
-    for i in ind:
-        sum_1 += (i**2)/4000
+    for i in d:
+        sum_1 += (i*i)/4000
     sum_2 = 1
-    for i in range(len(ind)):
-        sum_2 *= np.cos(ind[i]/math.sqrt(i + 1)) + 1
-    return sum_1 - sum_2
+    for i in range(len(d)):
+        sum_2 *= np.cos(d[i]/math.sqrt(i + 1))
+    return sum_1 - sum_2 + 1
 
-def Ackley(ind):
-    a, b, c = 20, 0.2, 2*np.pi
-    sum_1 = 0
-    for i in ind:
-        sum_1 += i**2
-    sum_1 = -1 * a * np.exp(-b * math.sqrt(sum_1 * (1/len(ind))))
-    
-    sum_2 = 0
-    for i in ind:
-        sum_2 += np.cos(c*i)
-    sum_2 = np.exp((1/len(ind)) * sum_2)
-    return sum_1 - sum_2 + a + np.exp(1)
-    
+def Ackley(d):
+    a = 20
+    b = 0.2
+    c = 2 * np.pi
+    sum1 = 0
+    sum2 = 0
+    for i in range(len(d)):
+        sum1 += d[i] ** 2
+        sum2 += np.cos(c * d[i])
+    term1 = -a * np.exp(-b * np.sqrt(sum1 / len(d)))
+    term2 = -np.exp(sum2 / len(d))
+
+    return term1 + term2 + a + np.exp(1)
     
