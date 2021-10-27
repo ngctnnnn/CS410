@@ -5,3 +5,7 @@ dimension = 2
 max_evals = 1e5
 F_scale=0.8
 cross_prob=0.7
+
+sigma_init=1.0
+c_inc = 1.1
+c_dec = 0.6
