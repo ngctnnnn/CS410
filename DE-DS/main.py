@@ -48,6 +48,7 @@ if __name__=='__main__':
     
     popsize_array = [1024]
     for popsize in popsize_array:
+        print(f"Popsize = {popsize}")
         if dimension == 2:
             max_evals = 1e5
             bounds = [(bound_lower, bound_upper)]*dimension
