@@ -11,8 +11,8 @@ def DifferentialEvolution(test_function, dimension, bound_lower, bound_upper, F_
     results, all_pops, generation_count = DE(test_function, dimension, [(bound_lower, bound_upper)]*dimension, F_scale, cross_prob, popsize, max_evals)
 
 
-    bound_lower = -10
-    bound_upper = 10
+    bound_lower = -6
+    bound_upper = 6
     x = np.linspace(bound_lower, bound_upper, 100)
     y = np.linspace(bound_lower, bound_upper, 100)
     X, Y = np.meshgrid(x, y)
@@ -36,17 +36,17 @@ def DifferentialEvolution(test_function, dimension, bound_lower, bound_upper, F_
     plt.show()
     anim = camera.animate()
     #save the animation as a gif file
-    anim.save('Griewank' + "/" + 'Griewank' + "-DE-" + str(popsize) + ".gif",writer="pillow")
+    anim.save('Rastrigin' + "/" + 'Rastrigin' + "-DE-" + str(popsize) + ".gif",writer="pillow")
     
     
 if __name__=='__main__':
     all_fitness = []
     num_evaluation = []
     
-    test_function = Griewank
+    test_function = Rastrigin
     seed_number = 19520925
     
-    popsize_array = [32, 64, 128, 256, 512, 1024]
+    popsize_array = [1024]
     for popsize in popsize_array:
         if dimension == 2:
             max_evals = 1e5
@@ -66,3 +66,4 @@ if __name__=='__main__':
     #     bounds = [(bound_lower, bound_upper)]*dimension
     #     for i in range(10):
     #         all_results.append(DE(test_function, dimension, bounds, F_scale, cross_prob, popsize, max_evals))
+    
