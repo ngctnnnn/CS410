@@ -36,17 +36,17 @@ def DifferentialEvolution(test_function, dimension, bound_lower, bound_upper, F_
     plt.show()
     anim = camera.animate()
     #save the animation as a gif file
-    anim.save('Rastrigin' + "/" + 'Rastrigin' + "-DE-" + str(popsize) + ".gif",writer="pillow")
+    anim.save('DE/Griewank' + "/" + 'Griewank' + "-DE-" + str(popsize) + ".gif",writer="pillow")
     
     
 if __name__=='__main__':
     all_fitness = []
     num_evaluation = []
     
-    test_function = Rastrigin
+    test_function = Griewank
     seed_number = 19520925
     
-    popsize_array = [1024]
+    popsize_array = [32, 64, 128, 256, 512, 1024]
     for popsize in popsize_array:
         print(f"Popsize = {popsize}")
         if dimension == 2:
